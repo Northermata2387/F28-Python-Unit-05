@@ -9,10 +9,6 @@ from flask import Flask
 # define Flask name of this file to app for simple and clean coding
 app = Flask(__name__)
 
-
-# Replace this with routes and view functions!
-
-
 # EXECUTE
 ########################################################################
 

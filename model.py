@@ -17,7 +17,6 @@ db = SQLAlchemy()
 
 # Class:User / Table:users
 class User(db.Model):
-    """A user."""
 
     # Override for tablename
     __tablename__ = "users"
@@ -35,7 +34,6 @@ class User(db.Model):
 
 # Class:Movie / Table:movies
 class Movie(db.Model):
-    """A movie."""
 
     # Override for tablename
     __tablename__ = "movies"
@@ -55,7 +53,6 @@ class Movie(db.Model):
 
 # Class:Rating / Table:ratings
 class Rating(db.Model):
-    """A movie rating."""
 
     # Override for tablename
     __tablename__ = "ratings"
