@@ -1,60 +1,28 @@
-# SEED_DATABASE.PY
 
-# SETUP
-########################################################################
-
-# os > operating systenm connection
 import os
-# json >
 import json
-# random > choice > takes in a list and returns a random element in the list
-# random > randit > return a random number within a certain range
 from random import choice, randint
-# datetime > datetime >  turn a string into a Python datetime object.
 from datetime import datetime
 
-# Import from crud.py
 import crud
-# Import from model.py
 import model
-# Import from server.py
 import server
 
-# Database reset
-########################################################################
+# Running will create a PostgreSQL database for use in program
 
-# Drop the database ratings
 os.system("dropdb ratings")
-# Create the database ratings
 os.system("createdb ratings")
 
-# Connect to the model.py > db > and create all the tables outlined in the file
-########################################################################
-
-# access the database
 model.connect_to_db(server.app)
-
-# create all the tables for PostreSQL
-# Used with Flask-SQLAlchemy 2.5.1
-# model.db.create_all()
-
-# Change code if change to Flask-SQLAlchemy 2.5.1
-# model.connect_to_db(server.app)
-# model.db.create_all()
 
 with server.app.app_context():
     model.db.create_all()
 
-    # (move back to root if venv includes Flask-SQLAlchemy 2.5.1)
-    # LOAD
-    ########################################################################
-
-    # Load movie data from JSON file
+    # Load movie data from movies.JSON file
     with open("data/movies.json") as f:
         movie_data = json.loads(f.read())
 
     # Create movies, store them in list for use
-    # Create stock ratings
     movies_in_db = []
     for movie in movie_data:
         title, overview, poster_path = (
@@ -71,7 +39,6 @@ with server.app.app_context():
     model.db.session.commit()
 
     # Create Instance of users
-
     user_count = 10
 
     for n in range(user_count):
@@ -89,9 +56,3 @@ with server.app.app_context():
             model.db.session.add(rating)
 
     model.db.session.commit()
-
-    # Execution
-    ########################################################################
-
-    # Running will create a PostgreSQL database for use in program
-    # Run... 
