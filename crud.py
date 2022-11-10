@@ -36,6 +36,19 @@ def create_rating(user, movie, score):
 
     return rating
 
+# READ
+########################################################################
+
+def get_movies():
+    """Return all movies."""
+
+    return Movie.query.all()
+
+def get_movie_by_id(movie_id):
+    """Return a movie by primary key."""
+
+    return Movie.query.get(movie_id)
+
 # EXECUTE
 ########################################################################
 
@@ -43,3 +56,4 @@ def create_rating(user, movie, score):
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)
+    

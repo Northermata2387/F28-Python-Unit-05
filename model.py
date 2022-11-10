@@ -86,12 +86,10 @@ def connect_to_db(flask_app, db_uri=os.environ["POSTGRES_URI"], echo=True):
 # EXECUTE
 ########################################################################
 
-# import to server.py and conncet to db
+# import to server.py and connect to db
 if __name__ == "__main__":
     from server import app
 
-    # Call connect_to_db(app, echo=False) if your program output gets
-    # too annoying; this will tell SQLAlchemy not to print out every
-    # query it executes.
+    # Use (echo=False) option to silence SQLAlchemy ouput
 
     connect_to_db(app, echo=False)
