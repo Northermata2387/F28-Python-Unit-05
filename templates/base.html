@@ -4,14 +4,45 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/base.css" />
     <title>{% block title %}{% endblock %}</title>
-
-    {% block head %}{% endblock %}
   </head>
   <body>
-    {% for msg in get_flashed_messages() %}
-    <p class="flash-msg">{{ msg }}</p>
-    {% endfor %} {% block body %}{% endblock %} {% block after_body %}{%
-    endblock %}
+    <nav class="navbar flex-row fixed roboto">
+      <div>
+        <a class="flex-row" href="{{ url_for('homepage') }}">
+          <img src="" alt="logo" />
+          <div>sequence</div>
+        </a>
+      </div>
+      <div class="flex-row navbar-links">
+        <a class="link" href="{{ url_for('all_movies') }}">movies</a>
+        <a class="link" href="{{ url_for('all_users') }}">users</a>
+        <a class="link" href="{{ url_for('register') }}">register</a>
+        <div>
+          {% if 'user_email' in session %}
+          <a class="link" href="/logout">Log Out</a>
+          {% else %}
+          <a class="link" href="/login">Log In</a>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+    <main class="padding-top-page">
+      {% for msg in get_flashed_messages() %}
+      <p class="flash-msg">{{ msg }}</p>
+      {% endfor %} {% block body %}{% endblock %} {% block after_body %}{%
+      endblock %}
+    </main>
   </body>
 </html>

@@ -9,39 +9,44 @@ app = Flask(__name__)
 app.secret_key = "dev"
 app.jinja_env.undefined = StrictUndefined
 
+@app.errorhandler(404)
+def error_404(e):
+    return render_template("404.html")
+
 
 @app.route("/")
 def homepage():
     
-    # view homepage
     return render_template("homepage.html")
 
 @app.route("/movies")
 def all_movies():
 
-    # render movies from ratings > movies SQL table
+    if "user_email" not in session:
+        flash("Please login to view all movies")
+        return redirect("/login")
+
     movies = crud.get_movies()
 
-    # view all_movies and all movie cards
     return render_template("all_movies.html", movies=movies)
 
 @app.route("/movies/<movie_id>")
 def show_movie(movie_id):
 
-    # render a single movide by its id
     movie = crud.get_movie_by_id(movie_id)
 
-    # View movie_details and inidivual movie card by id
     return render_template("movie_details.html", movie=movie)
 
 
 @app.route("/users")
 def all_users():
+    
+    if "user_email" not in session:
+        flash("Please login to view profiles")
+        return redirect("/login")
 
-    # Define movies as import of get_movie_by_id from crud.py
     users = crud.get_users()
 
-    # View all_users.html
     return render_template("all_users.html", users=users)
 
 
@@ -60,7 +65,7 @@ def register_user():
         db.session.commit()
         flash("Account created! Please login")
 
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/users/<user_id>")
 def show_user(user_id):
@@ -69,6 +74,11 @@ def show_user(user_id):
 
     return render_template("user_details.html", user=user)
 
+@app.route("/login")
+def login():
+    
+    return render_template("login.html")
+
 @app.route("/login", methods=["POST"])
 def process_login():
 
@@ -76,13 +86,25 @@ def process_login():
     password = request.form.get("password")
 
     user = crud.get_user_by_email(email)
+    
     if not user or user.password != password:
-        flash("The email or password you entered was incorrect.")
+        flash("The email or password entered was not right, please try again")
+        
+        return redirect("/login")
     else:
-        # Log in user by storing the user's email in session
         session["user_email"] = user.email
         flash(f"Welcome back, {user.email}!")
+        
+        return redirect("/movies")
 
+@app.route("/logout")
+def logout():
+    
+    if 'user_email' not in session:
+        return redirect("/login")
+    
+    del session["user_email"]
+    flash("logged out")
     return redirect("/")
 
 @app.route("/update_rating", methods=["POST"])
@@ -96,7 +118,6 @@ def update_rating():
 
 @app.route("/movies/<movie_id>/ratings", methods=["POST"])
 def create_rating(movie_id):
-    """Create a new rating for the movie."""
 
     logged_in_email = session.get("user_email")
     rating_score = request.form.get("rating")
@@ -117,7 +138,17 @@ def create_rating(movie_id):
 
     return redirect(f"/movies/{movie_id}")
 
+@app.route("/register")
+def register():
+    
+    return render_template("register.html")
+
+# @app.route("/register")
+# def register():
+    
+#     redirect("/login")
+
+
 if __name__ == "__main__":
     connect_to_db(app)
-    # host allows access to site from any system with the URL 
     app.run(host="0.0.0.0", debug=True)

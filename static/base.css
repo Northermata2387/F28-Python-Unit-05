@@ -1,0 +1,87 @@
+body {
+  color: hsl(90, 3%, 55%);
+  font-family: "Open Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: hsl(0, 0%, 7%);
+}
+
+/* Versatile Styling - apply as needed */
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.margin-bottom {
+  margin-bottom: 0.2rem;
+}
+
+.margin-top {
+  margin-top: 1rem;
+}
+
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
+
+.start-caps {
+  text-transform: capitalize;
+}
+
+.btn {
+  color: white;
+  background-color: hsl(32, 90%, 61%);
+  border: 1px solid hsl(32, 90%, 61%);
+  border-radius: 3px;
+  padding: 0.1rem 0.2rem;
+}
+
+.btn:hover {
+  color: hsl(226, 92%, 90%);
+  background-color: hsl(32, 90%, 50%);
+  border: 1px solid hsl(32, 90%, 61%);
+}
+
+/* base.html */
+/* navbar */
+.fixed {
+  position: fixed;
+}
+
+.navbar {
+  width: 98.7vw;
+  height: 3rem;
+  background-color: hsl(0, 0%, 4%);
+  margin: 0;
+  padding: 0 1rem 1rem 0.1rem;
+  border-bottom: 3px solid hsl(0, 0%, 7%);
+}
+
+.navbar-links {
+  margin: 1.2rem 1rem 1rem 1rem;
+}
+
+.link {
+  text-decoration: none;
+  color: hsl(32, 90%, 61%);
+  border-radius: 3px;
+  padding: 0.1rem 0.3rem 0.2rem;
+  text-transform: capitalize;
+}
+
+/* base.html */
+/* body */
+
+.padding-top-page {
+  padding-top: 5rem;
+}

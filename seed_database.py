@@ -18,11 +18,9 @@ model.connect_to_db(server.app)
 with server.app.app_context():
     model.db.create_all()
 
-    # Load movie data from movies.JSON file
     with open("data/movies.json") as f:
         movie_data = json.loads(f.read())
 
-    # Create movies, store them in list for use
     movies_in_db = []
     for movie in movie_data:
         title, overview, poster_path = (
@@ -38,11 +36,10 @@ with server.app.app_context():
     model.db.session.add_all(movies_in_db)
     model.db.session.commit()
 
-    # Create Instance of users
     user_count = 10
 
     for n in range(user_count):
-        email = f"user{n}@test.com" # unique email generator
+        email = f"user{n}@test.com"
         password = "test"
 
         user = crud.create_user(email, password)
