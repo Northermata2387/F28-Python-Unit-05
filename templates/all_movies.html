@@ -1,11 +1,14 @@
 {% extends 'base.html' %} {% block title %}All Movies{% endblock %} {% block
 body %}
-
-<ul>
-  {% for movie in movies %}
-  <li>
-    <a href="/movies/{{ movie.movie_id }}"> {{ movie.title }} </a>
-  </li>
-  {% endfor %}
-</ul>
+<div>
+  <ul class="movie-grid">
+    {% for movie in movies %}
+    <li class="list-style">
+      <a href="/movies/{{ movie.movie_id }}">
+        <img class="movie-posters" src="{{ movie.poster_path }}" />
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
 {% endblock %}

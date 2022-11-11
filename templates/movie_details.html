@@ -1,24 +1,28 @@
 {% extends 'base.html' %} {% block title %}{{ movie.title }} - Details{%
 endblock %} {% block body %}
-<h1>{{ movie.title }}</h1>
-
-<p>{{ movie.overview }}</p>
-
-{% if session.get('user_email') %}
-<h2>Rate this movie</h2>
-<form action="/movies/{{ movie.movie_id }}/ratings" method="POST">
-  <p>
-    Rating:
-    <select name="rating">
-      <option value="">Select rating</option>
-      {% for num in range(6) %}
-      <option value="{{ num }}">{{ num }}</option>
-      {% endfor %}
-    </select>
-  </p>
-  <p><input type="submit" /></p>
-</form>
-{% endif %}
-
-<img src="{{ movie.poster_path }}" />
+<div class="movie_details flex-row">
+  <img class="poster" src="{{ movie.poster_path }}" />
+  <div class="movie-details-card">
+    <h1 class="movie_title roboto">{{ movie.title }}</h1>
+    <p class="movie-overview">{{ movie.overview }}</p>
+    {% if session.get('user_email') %}
+    <form
+      class="flex-row"
+      action="/movies/{{ movie.movie_id }}/ratings"
+      method="POST"
+    >
+      <p>
+        Rating:
+        <select class="rating" name="rating">
+          <option value="">#</option>
+          {% for num in range(6) %}
+          <option value="{{ num }}">{{ num }}</option>
+          {% endfor %}
+        </select>
+      </p>
+      <p class="margin-left"><input class="btn" type="submit" /></p>
+    </form>
+    {% endif %}
+  </div>
+</div>
 {% endblock %}
