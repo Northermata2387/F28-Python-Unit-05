@@ -31,7 +31,8 @@ body {
 }
 
 .btn {
-  color: hsl(0, 0%, 7%);
+  color: hsl(0, 0%, 100%);
+  font-weight: bold;
   background-color: hsl(32, 90%, 61%);
   border: 1px solid hsl(32, 90%, 61%);
   border-radius: 3px;
@@ -39,18 +40,28 @@ body {
 }
 
 .btn:hover {
-  color: hsl(0, 0%, 7%);
-  background-color: hsl(32, 90%, 50%);
+  color: hsl(0, 0%, 97%);
+  background-color: hsl(32, 90%, 56%);
   border: 1px solid hsl(32, 90%, 61%);
 }
 
 .rating {
   border-radius: 3px;
   background-color: hsl(32, 90%, 50%);
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .margin-left {
   margin-left: 0.5rem;
+}
+
+.relative {
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
 }
 
 /* 404.html */
@@ -84,16 +95,47 @@ body {
   border-bottom: 3px solid hsl(0, 0%, 7%);
 }
 
+.a-logo {
+  text-decoration: none;
+}
+
+.logo {
+  height: 3rem;
+  object-fit: cover;
+  margin: 0.6rem 0 0 2rem;
+}
+
+.logo-name {
+  color: hsl(30, 100%, 58%);
+  border-radius: 3px;
+  padding: 0.4rem 0.3rem 0.2rem;
+  text-transform: capitalize;
+}
+
 .navbar-links {
-  margin: 1.2rem 1rem 1rem 1rem;
+  margin: 1.35rem 1rem 1rem 1rem;
 }
 
 .link {
   text-decoration: none;
-  color: hsl(32, 90%, 61%);
+  color: hsl(30, 100%, 58%);
   border-radius: 3px;
-  padding: 0.1rem 0.3rem 0.2rem;
+  padding: 0.1rem 1rem 0.3rem;
   text-transform: capitalize;
+}
+
+.login {
+  margin-left: 64rem;
+}
+
+.flash-div {
+  position: relative;
+}
+
+.flash-msg {
+  color: hsl(0, 0%, 100%);
+  position: absolute;
+  margin: -4.7rem 0 0 22rem;
 }
 
 /* base.html */
@@ -101,6 +143,70 @@ body {
 
 .padding-top-page {
   padding-top: 6rem;
+}
+
+/* homepage.html */
+
+.welcome-div {
+  position: relative;
+  color: hsl(0, 0%, 100%);
+}
+
+.welcome-card {
+  position: absolute;
+  margin: -34rem 0 0 22rem;
+  text-align: center;
+  width: 50rem;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.welcome-title {
+  font-size: 4rem;
+}
+
+.welcome-access {
+  margin: -2.4rem 0 3rem 0;
+}
+
+.register-form {
+  margin-left: 5.7em;
+  height: 2em;
+  border-radius: 3px;
+}
+
+.email {
+  width: 15em;
+}
+
+.register-btn {
+  font-size: 1.5rem;
+  padding: 0 1em;
+}
+
+.collection-img {
+  width: 99vw;
+  height: 88vh;
+  margin: -1.7rem 0 0 0;
+  padding: 0;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+/* login.html */
+
+.log-in-div {
+  margin: -30em 0 0 40em;
+  background-color: hsl(0, 0%, 4%, 0.8);
+  padding: 2em 4em 2em 2em;
+  border-radius: 4px;
+}
+
+.log-in-title {
+  color: hsl(0, 0%, 100%);
+}
+
+.log-in-form {
 }
 
 /* movies_details.html */
@@ -121,8 +227,13 @@ body {
 
 .movie_title {
   width: 25rem;
+  color: hsl(0, 0%, 100%);
 }
 
 .movie-overview {
   width: 25rem;
+}
+
+.rating-form {
+  color: hsl(0, 0%, 100%);
 }

@@ -94,7 +94,7 @@ def process_login():
         return redirect("/login")
     else:
         session["user_email"] = user.email
-        flash(f"Welcome back, {user.email}!")
+        flash(f"Welcome {user.email}!")
         
         return redirect("/movies")
 
@@ -143,12 +143,6 @@ def create_rating(movie_id):
 def register():
     
     return render_template("register.html")
-
-# @app.route("/register")
-# def register():
-    
-#     redirect("/login")
-
 
 if __name__ == "__main__":
     connect_to_db(app)

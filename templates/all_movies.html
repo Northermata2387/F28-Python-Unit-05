@@ -1,11 +1,14 @@
-{% extends 'base.html' %} {% block title %}All Movies{% endblock %} {% block
-body %}
+{% extends 'base.html' %} {% block body %}
 <div>
   <ul class="movie-grid">
     {% for movie in movies %}
     <li class="list-style">
       <a href="/movies/{{ movie.movie_id }}">
-        <img class="movie-posters" src="{{ movie.poster_path }}" />
+        <img
+          class="movie-posters"
+          src="{{ movie.poster_path }}"
+          loading="lazy"
+        />
       </a>
     </li>
     {% endfor %}

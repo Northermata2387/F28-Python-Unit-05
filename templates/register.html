@@ -1,15 +1,26 @@
-{% extends 'base.html' %} {% block title %}Movie Ratings Home{% endblock %} {%
-block body %}
+{% extends 'base.html' %} {% block body %}
 <div>
-  <h2>Create a new account</h2>
-  <form action="/users" method="POST">
-    <p>Email <input type="text" name="email" /></p>
-
-    <p>Password <input type="password" name="password" /></p>
-
-    <p>
-      <input type="submit" />
-    </p>
-  </form>
+  <div>
+    <img
+      class="collection-img"
+      src="https://wallpapercave.com/wp/wp10615910.jpg"
+      alt="list of movies"
+    />
+  </div>
+  <div class="relative">
+    <div class="absolute log-in-div">
+      <h2 class="log-in-title">Register</h2>
+      <form class="flex-column" action="/users" method="POST">
+        <input
+          class="email"
+          type="text"
+          name="email"
+          placeholder="Email address"
+        />
+        <input type="password" name="password" placeholder="Password" />
+        <input class="btn register-btn" type="submit" value="Register" />
+      </form>
+    </div>
+  </div>
 </div>
 {% endblock %}

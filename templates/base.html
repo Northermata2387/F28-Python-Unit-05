@@ -15,21 +15,20 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../static/base.css" />
-    <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}Sequence{% endblock %}</title>
   </head>
   <body>
     <nav class="navbar flex-row fixed roboto">
       <div>
-        <a class="flex-row" href="{{ url_for('homepage') }}">
-          <img src="" alt="logo" />
-          <div>sequence</div>
+        <a class="flex-row a-logo" href="{{ url_for('homepage') }}">
+          <img class="logo" src="../static/images/logo.JPG" alt="logo" />
+          <p class="logo-name">sequence</p>
         </a>
       </div>
       <div class="flex-row navbar-links">
         <a class="link" href="{{ url_for('all_movies') }}">movies</a>
         <a class="link" href="{{ url_for('all_users') }}">users</a>
-        <a class="link" href="{{ url_for('register') }}">register</a>
-        <div>
+        <div class="login">
           {% if 'user_email' in session %}
           <a class="link" href="/logout">Log Out</a>
           {% else %}
@@ -39,10 +38,12 @@
       </div>
     </nav>
     <main class="padding-top-page">
-      {% for msg in get_flashed_messages() %}
-      <p class="flash-msg">{{ msg }}</p>
-      {% endfor %} {% block body %}{% endblock %} {% block after_body %}{%
-      endblock %}
+      <div class="flash-div">
+        {% for msg in get_flashed_messages() %}
+        <p class="flash-msg">{{ msg }}</p>
+        {% endfor %}
+      </div>
+      {% block body %}{% endblock %} {% block after_body %}{% endblock %}
     </main>
   </body>
 </html>

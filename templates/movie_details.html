@@ -1,9 +1,9 @@
-{% extends 'base.html' %} {% block title %}{{ movie.title }} - Details{%
-endblock %} {% block body %}
+{% extends 'base.html' %} {% block body %}
 <div class="movie_details flex-row">
   <img class="poster" src="{{ movie.poster_path }}" />
   <div class="movie-details-card">
     <h1 class="movie_title roboto">{{ movie.title }}</h1>
+    <p>Released: {{ movie.release_date.date() }}</p>
     <p class="movie-overview">{{ movie.overview }}</p>
     {% if session.get('user_email') %}
     <form
@@ -11,8 +11,8 @@ endblock %} {% block body %}
       action="/movies/{{ movie.movie_id }}/ratings"
       method="POST"
     >
-      <p>
-        Rating:
+      <p class="rating-form">
+        Rate this movie
         <select class="rating" name="rating">
           <option value="">#</option>
           {% for num in range(6) %}
