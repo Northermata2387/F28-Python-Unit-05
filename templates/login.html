@@ -11,13 +11,23 @@
     <div class="absolute log-in-div">
       <h2 class="log-in-title">Log In</h2>
       <form class="flex-column log-in-form" action="/login" method="POST">
-        <input type="text" name="email" placeholder="Email adress" />
-        <input type="password" name="password" placeholder="Password" />
-        <input class="btn register-btn" type="submit" value="Log In" />
+        <input
+          class="login-input"
+          type="text"
+          name="email"
+          placeholder="Email adress"
+        />
+        <input
+          class="login-input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input class="btn login-btn" type="submit" value="Log In" />
       </form>
       <p>
-        New to Sequence<a class="link" href="{{ url_for('register') }}"
-          >Register</a
+        New to Sequence<a class="register-now" href="{{ url_for('register') }}"
+          >Register Now</a
         >
       </p>
     </div>

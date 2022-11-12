@@ -1,19 +1,22 @@
 {% extends 'base.html' %} {% block body %}
-<h1>{{ user.email }}</h1>
-<ul>
-  {% for rating in user.ratings %}
-  <li>
-    {{ rating.movie.title }}:
-    <span class="rating_num_" {{ rating.rating_id }}> {{ rating.score }} </span>
-    {% if session["user_email"] == user.email %}
-    <button class="edit-movie-rating" id="{{ rating.rating_id }}">
-      Edit rating
-    </button>
-    {% endif %}
-  </li>
-  {% endfor %}
-</ul>
+<div class="ratings-div">
+  <h1>The Ratings for {{ user.email }}</h1>
+  <ul>
+    {% for rating in user.ratings %}
+    <li>
+      {{ rating.movie.title }}:
+      <span class="rating_num_" {{ rating.rating_id }}>
+        {{ rating.score }}
+      </span>
+      {% if session["user_email"] == user.email %}
+      <button class="edit-movie-rating" id="{{ rating.rating_id }}">
+        Edit rating
+      </button>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
 
-<script src="/static/js/updateRatings.js"></script>
-
+  <script src="/static/js/updateRatings.js"></script>
+</div>
 {% endblock %}

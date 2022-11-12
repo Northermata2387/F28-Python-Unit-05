@@ -80,6 +80,43 @@ body {
   margin: 0 3rem 3rem 0;
 }
 
+/* all_users.html */
+
+.user-image-back {
+  width: 98.9vw;
+  height: 88vh;
+  margin: -1.7rem 0 0 0;
+  padding: 0;
+  object-fit: cover;
+}
+
+.user-card {
+  margin: -37em 0 0 32rem;
+  background-color: hsl(0, 0%, 4%, 0.8);
+  padding: 1em 3em 2em;
+  border-radius: 4px;
+}
+
+.user-title {
+  color: hsl(0, 0%, 100%);
+}
+
+.user-ul {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin-left: 2.6em;
+}
+
+.user-li {
+  margin-top: 0.5em;
+}
+
+.user-id {
+  text-decoration: none;
+  color: hsl(90, 3%, 55%);
+}
+
 /* base.html */
 /* navbar */
 .fixed {
@@ -177,10 +214,18 @@ body {
 
 .email {
   width: 15em;
+  border-radius: 3px;
+}
+
+.password {
+  border-radius: 3px;
 }
 
 .register-btn {
-  font-size: 1.5rem;
+  margin-top: 0.1em;
+  height: 3.05em;
+  width: 9em;
+  font-size: 1rem;
   padding: 0 1em;
 }
 
@@ -196,9 +241,9 @@ body {
 /* login.html */
 
 .log-in-div {
-  margin: -30em 0 0 40em;
+  margin: -32em 0 0 32.5em;
   background-color: hsl(0, 0%, 4%, 0.8);
-  padding: 2em 4em 2em 2em;
+  padding: 3em 5em;
   border-radius: 4px;
 }
 
@@ -207,6 +252,26 @@ body {
 }
 
 .log-in-form {
+  width: 20em;
+}
+
+.login-input {
+  height: 3em;
+  margin-top: 1em;
+}
+
+.login-btn {
+  font-size: 1rem;
+  padding: 1em 1em;
+  margin-top: 1.5em;
+}
+
+.register-now {
+  text-decoration: none;
+  color: hsl(0, 0%, 100%);
+  border-radius: 3px;
+  padding: 0.1rem 1rem 0.3rem;
+  text-transform: capitalize;
 }
 
 /* movies_details.html */
@@ -236,4 +301,38 @@ body {
 
 .rating-form {
   color: hsl(0, 0%, 100%);
+}
+
+/* register.html */
+
+.register-div {
+  margin: -32em 0 0 32.5em;
+  background-color: hsl(0, 0%, 4%, 0.8);
+  padding: 3em 5em 5em;
+  border-radius: 4px;
+}
+
+.register-title {
+  color: hsl(0, 0%, 100%);
+}
+
+.register-form-page {
+  width: 20em;
+}
+
+.register-input {
+  height: 3em;
+  margin-top: 1em;
+}
+
+.register-btn-page {
+  font-size: 1rem;
+  padding: 1em 1em;
+  margin-top: 1.5em;
+}
+
+/* user_details.html */
+
+.ratings-div {
+  height: 83.7vh;
 }

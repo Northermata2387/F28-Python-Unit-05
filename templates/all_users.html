@@ -1,9 +1,29 @@
 {% extends 'base.html' %} {% block body %}
-<ul>
-  {% for user in users %}
-  <li>
-    <a href="/users/{{ user.user_id }}"> {{ user.email }} </a>
-  </li>
-  {% endfor %}
-</ul>
+<div>
+  <div>
+    <img
+      class="user-image-back"
+      src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+      alt=""
+    />
+  </div>
+  <div class="relative">
+    <div class="absolute user-card">
+      <div>
+        <h1 class="user-title roboto">List of User Profiles</h1>
+      </div>
+      <div>
+        <ul class="user-ul flex-row">
+          {% for user in users %}
+          <li class="user-li">
+            <a class="user-id" href="/users/{{ user.user_id }}">
+              {{ user.email }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

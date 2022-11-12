@@ -8,17 +8,26 @@
     />
   </div>
   <div class="relative">
-    <div class="absolute log-in-div">
-      <h2 class="log-in-title">Register</h2>
-      <form class="flex-column" action="/users" method="POST">
+    <div class="absolute register-div">
+      <h2 class="register-title">Register</h2>
+      <form
+        class="flex-column register-form-page"
+        action="/users"
+        method="POST"
+      >
         <input
-          class="email"
+          class="register-input"
           type="text"
           name="email"
           placeholder="Email address"
         />
-        <input type="password" name="password" placeholder="Password" />
-        <input class="btn register-btn" type="submit" value="Register" />
+        <input
+          class="register-input"
+          type="password"
+          name="password"
+          placeholder="Password"
+        />
+        <input class="btn register-btn-page" type="submit" value="Register" />
       </form>
     </div>
   </div>
